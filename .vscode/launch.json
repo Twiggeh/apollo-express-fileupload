@@ -1,0 +1,36 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Start CRA",
+			"cwd": "${workspaceFolder}/client",
+			"command": "yarn start",
+			"request": "launch",
+			"type": "node-terminal"
+		},
+		{
+			"name": "Development Backend",
+			"cwd": "${workspaceFolder}/server",
+			"restart": true,
+			"request": "launch",
+			"type": "pwa-node",
+			"runtimeExecutable": "nodemon",
+			"runtimeArgs": ["--inspect-brk", "./dist/src/app.js"]
+		},
+
+		{
+			"command": "yarn debug",
+			"cwd": "${workspaceFolder}/server",
+			"name": "TSC Compiler Server",
+			"request": "launch",
+			"type": "node-terminal"
+		}
+	],
+	"compounds": [
+		{
+			"name": "start debug session",
+			"configurations": ["TSC Compiler Server", "Development Backend", "Start CRA"],
+			"stopAll": true
+		}
+	]
+}
