@@ -9,7 +9,7 @@ config();
 import { graphqlUploadExpress } from 'graphql-upload';
 import { URL } from 'url';
 
-const __dirname = dirname(new URL(import.meta.url).pathname);
+const __dirname = decodeURI(dirname(new URL(import.meta.url).pathname));
 export const rootDir = resolve(__dirname, '../');
 
 const app = express();
