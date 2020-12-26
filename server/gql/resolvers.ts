@@ -1,10 +1,9 @@
-import { createWriteStream, unlinkSync, existsSync, mkdir, mkdirSync } from 'fs';
+import { createWriteStream, unlinkSync, existsSync, mkdirSync } from 'fs';
 import { GraphQLUpload } from 'graphql-upload';
 import { Readable, ReadableOptions } from 'stream';
 import { MergeInfo } from 'apollo-server-express';
 import { GraphQLResolveInfo } from 'graphql';
-import { dirname, join } from 'path';
-import { URL } from 'url';
+import { join } from 'path';
 import { rootDir } from '../src/app.js';
 
 const singleUpload: IResolver<FileUpload, singleUploadResult> = async (
